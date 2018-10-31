@@ -36,18 +36,18 @@ public:
     QGroupBox *groupCheckOut;
     QFormLayout *formLayout_3;
     QLabel *rg_2;
-    QLineEdit *lineEditRG_2;
+    QLineEdit *txt_rg_2;
     QPushButton *checkOut;
     QWidget *layoutWidget;
     QVBoxLayout *verticalLayout_2;
     QGroupBox *groupCadastro;
     QFormLayout *formLayout;
     QLabel *nome;
-    QLineEdit *lineEditNome;
+    QLineEdit *txt_nome;
     QLabel *rg;
-    QLineEdit *lineEditRG;
+    QLineEdit *txt_rg;
     QLabel *telefone;
-    QLineEdit *lineEditTel;
+    QLineEdit *txt_telefone;
     QGroupBox *groupQuartos;
     QVBoxLayout *verticalLayout;
     QRadioButton *simples;
@@ -91,10 +91,10 @@ public:
 
         formLayout_3->setWidget(0, QFormLayout::LabelRole, rg_2);
 
-        lineEditRG_2 = new QLineEdit(groupCheckOut);
-        lineEditRG_2->setObjectName(QStringLiteral("lineEditRG_2"));
+        txt_rg_2 = new QLineEdit(groupCheckOut);
+        txt_rg_2->setObjectName(QStringLiteral("txt_rg_2"));
 
-        formLayout_3->setWidget(0, QFormLayout::FieldRole, lineEditRG_2);
+        formLayout_3->setWidget(0, QFormLayout::FieldRole, txt_rg_2);
 
         checkOut = new QPushButton(groupCheckOut);
         checkOut->setObjectName(QStringLiteral("checkOut"));
@@ -120,30 +120,30 @@ public:
 
         formLayout->setWidget(0, QFormLayout::LabelRole, nome);
 
-        lineEditNome = new QLineEdit(groupCadastro);
-        lineEditNome->setObjectName(QStringLiteral("lineEditNome"));
+        txt_nome = new QLineEdit(groupCadastro);
+        txt_nome->setObjectName(QStringLiteral("txt_nome"));
 
-        formLayout->setWidget(0, QFormLayout::FieldRole, lineEditNome);
+        formLayout->setWidget(0, QFormLayout::FieldRole, txt_nome);
 
         rg = new QLabel(groupCadastro);
         rg->setObjectName(QStringLiteral("rg"));
 
         formLayout->setWidget(1, QFormLayout::LabelRole, rg);
 
-        lineEditRG = new QLineEdit(groupCadastro);
-        lineEditRG->setObjectName(QStringLiteral("lineEditRG"));
+        txt_rg = new QLineEdit(groupCadastro);
+        txt_rg->setObjectName(QStringLiteral("txt_rg"));
 
-        formLayout->setWidget(1, QFormLayout::FieldRole, lineEditRG);
+        formLayout->setWidget(1, QFormLayout::FieldRole, txt_rg);
 
         telefone = new QLabel(groupCadastro);
         telefone->setObjectName(QStringLiteral("telefone"));
 
         formLayout->setWidget(2, QFormLayout::LabelRole, telefone);
 
-        lineEditTel = new QLineEdit(groupCadastro);
-        lineEditTel->setObjectName(QStringLiteral("lineEditTel"));
+        txt_telefone = new QLineEdit(groupCadastro);
+        txt_telefone->setObjectName(QStringLiteral("txt_telefone"));
 
-        formLayout->setWidget(2, QFormLayout::FieldRole, lineEditTel);
+        formLayout->setWidget(2, QFormLayout::FieldRole, txt_telefone);
 
 
         verticalLayout_2->addWidget(groupCadastro);
