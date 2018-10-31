@@ -1,6 +1,4 @@
 //Esse arquivo contem o codigo da classe estadia e da LDDE
-
-
 #include <cstdlib>
 #include <iostream>
 #include <string>
@@ -17,6 +15,9 @@ class Estadia{
 	bool status;
 	Estadia * anterior;
 	Estadia * proximo;
+	int dias;
+	float gasto;
+
 	void setCodCliente(int cod){
 		codcliente = cod;
 	}
@@ -38,16 +39,22 @@ class Estadia{
 	void setProx(Estadia * prox){
 		proximo = prox;
 	}
+	void setGasto(float preco){
+		gasto=preco*dias;
+	}
+
 
 
 	public:
-	Estadia(int cod, string checkin, string checkout, bool tag){
+	Estadia(int cod, string checkin, string checkout, bool tag, int qtddias, float preco){
 		setCodCliente(cod);
 		setChegada(checkin);
 		setSaida(checkout);
 		setStatus(tag);
 		proximo = NULL;
 		anterior = NULL;
+		dias=qtddias;
+		setGasto(preco);
 
 
 	}
@@ -59,20 +66,23 @@ class Estadia{
 		return proximo;
 	}
 
+	float getGasto(){
+		return gasto;
+	}
+
 	friend class LDDE;
 };
 
-//template <class Tipo>
+
 class LDDE{
   public:
 
     LDDE():primeiro(NULL), atual(NULL){};
 
-    bool inserir(int cod, string checkin, string checkout, bool hospedado){
-      Estadia * novo = new Estadia(cod,checkin, checkout, hospedado);
+    bool inserir(int cod, string checkin, string checkout, bool hospedado, int qtddias, float preco){
+      Estadia * novo = new Estadia(cod,checkin, checkout, hospedado, qtddias, preco);
       Estadia * temp = NULL;
-      //temp = NULL;
-      //novo->valor=valor;
+
       atual=primeiro;
       while(atual != NULL && atual->codcliente < novo->codcliente){
         temp=atual;
