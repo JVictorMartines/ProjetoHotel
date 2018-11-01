@@ -29,7 +29,11 @@ SOURCES += \
         mainwindow.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    avl.h \
+    cliente.h \
+    estadia.h \
+    quartos.h
 
 FORMS += \
         mainwindow.ui

@@ -1,6 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "avl.h"
+#include "cliente.h"
 #include <QMessageBox>
+#include <QDate>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -32,8 +35,15 @@ void MainWindow::on_checkIn_clicked()
         //quarto = 3;
     }
 
+    QDate dEntrada = ui->dateEdit->date();
+    QString diaEntrada = dEntrada.toString();
+    QDate dSaida = ui->dateEdit_2->date();
+    QString diaSaida = dSaida.toString();
+    //
+    AVL avl;
+    Cliente cliente;
 
-
+    //
     QMessageBox::about(this,"Check-In","Check-In feito com sucesso!");
 
     ui->txt_nome->clear();
