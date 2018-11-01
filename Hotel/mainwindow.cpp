@@ -44,7 +44,7 @@ void MainWindow::on_checkIn_clicked()
     //
     AVL avl;
     Cliente *cliente = nullptr;
-    Estadia *estadia;
+    Estadia *estadia = nullptr;
 
 
     cliente->setCod(code.toInt());

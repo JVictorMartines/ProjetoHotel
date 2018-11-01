@@ -34,7 +34,8 @@ HEADERS += \
     avl.h \
     cliente.h \
     estadia.h \
-    quartos.h
+    quartos.h \
+    bancodados.h
 
 FORMS += \
         mainwindow.ui
