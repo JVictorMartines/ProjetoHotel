@@ -1,0 +1,163 @@
+#ifndef ESTADIA_H
+#define ESTADIA_H
+
+#include <cstdlib>
+#include <iostream>
+#include <string>
+
+
+using namespace std;
+
+class Estadia{
+
+    private:
+    string chegada;
+    string saida;
+    int codcliente;
+    bool status;
+    Estadia * anterior;
+    Estadia * proximo;
+    int dias;
+    float gasto;
+
+    public:
+    void setCodCliente(int cod){
+        codcliente = cod;
+    }
+
+    void setChegada(string checkin){
+        chegada = checkin;
+    }
+
+    void setSaida(string checkout){
+        saida = checkout;
+    }
+    void setStatus(bool tag){
+        status = tag;
+    }
+
+    void setAnt(Estadia * ant){
+        anterior = ant;
+    }
+    void setProx(Estadia * prox){
+        proximo = prox;
+    }
+    void setGasto(float preco){
+        gasto=preco*dias;
+    }
+
+
+    Estadia(int cod, string checkin, string checkout, bool tag, int qtddias, float preco){
+        setCodCliente(cod);
+        setChegada(checkin);
+        setSaida(checkout);
+        setStatus(tag);
+        proximo = nullptr;
+        anterior = nullptr;
+        dias=qtddias;
+        setGasto(preco);
+
+
+    }
+
+    Estadia * getAnt(){
+        return anterior;
+    }
+    Estadia * getProx(){
+        return proximo;
+    }
+
+    float getGasto(){
+        return gasto;
+    }
+
+    friend class LDDE;
+};
+
+
+class LDDE{
+  public:
+
+    LDDE():primeiro(nullptr), atual(nullptr){}
+
+    bool inserir(int cod, string checkin, string checkout, bool hospedado, int qtddias, float preco){
+      Estadia * novo = new Estadia(cod,checkin, checkout, hospedado, qtddias, preco);
+      Estadia * temp = nullptr;
+
+      atual=primeiro;
+      while(atual != nullptr && atual->codcliente < novo->codcliente){
+        temp=atual;
+        atual=atual->proximo;
+      }
+      if(temp){
+        temp->proximo=novo;
+      }else{
+        primeiro=novo;
+      }
+
+      novo->proximo=atual;
+
+      if(atual){
+        novo->anterior=atual->anterior;
+        atual->anterior=novo;
+      }
+
+      return true;
+    }
+
+   bool remove(int cod){
+      Estadia * ant = nullptr;
+      //ant=NULL;
+      atual=primeiro;
+
+        while(atual && atual->codcliente<cod){
+          ant=atual;
+          atual=atual->proximo;
+        }
+        if(atual && atual->codcliente==cod){
+          ant->proximo=atual->proximo;
+
+
+          delete atual;
+          atual=ant->proximo;
+          atual->anterior=ant;
+        }
+
+        return true;
+   }
+
+   void imprime(){//metodo para fim de testes deve ser apagado na versao final
+      if(!primeiro){
+        cout<<"Nao existe valor a ser impresso"<<endl;
+      }else{
+      atual=primeiro;
+
+        while(atual != nullptr){
+          cout<<atual->codcliente<<endl;
+          atual=atual->proximo;
+        }
+      }
+    }
+
+     Estadia * busca(int cod){//precisa de verificacao, pois se nao encontrar atual=NULL
+      //Node<Tipo> * novo = new Node<Tipo>(valor);
+      atual=primeiro;
+       while(atual != nullptr && atual->codcliente < cod){
+        atual=atual->proximo;
+      }
+      if(atual && atual->codcliente==cod){
+      return atual;
+      }
+      //atual->codcliente = -1;
+      atual = nullptr;
+      return atual;
+    }
+
+    Estadia * primeiro,* atual;
+    int cod;
+
+    friend class Estadia;
+
+};
+
+#endif // ESTADIA_H

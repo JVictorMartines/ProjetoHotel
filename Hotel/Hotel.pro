@@ -26,10 +26,15 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    avl.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    avl.h \
+    cliente.h \
+    estadia.h \
+    quartos.h
 
 FORMS += \
         mainwindow.ui
