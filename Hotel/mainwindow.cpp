@@ -4,6 +4,7 @@
 #include "cliente.h"
 #include "estadia.h"
 #include "quartos.h"
+#include "bancodados.h"
 #include <QMessageBox>
 #include <QDate>
 using namespace std;
@@ -68,6 +69,10 @@ void MainWindow::on_checkIn_clicked()
 void MainWindow::on_checkOut_clicked()
 {
     QString rg_2 = ui->txt_rg_2->text();
+    QDate dSaida = ui->dateEdit_2->date();
+    QString diaSaida = dSaida.toString();
+
+
 
     QMessageBox::about(this,"Check-Out","Check-Out feito com sucesso!");
     ui->txt_rg_2->clear();

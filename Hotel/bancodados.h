@@ -86,7 +86,7 @@ void checkIn()
 
         strcpy(ctt.hospedado, "Hospedado");
 
-        //CORETTO!! XD
+        //CORRETO!! XD
         cout<<"\n";
         cout<<ctt.hospedado;
 
